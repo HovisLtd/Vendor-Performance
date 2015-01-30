@@ -1,0 +1,16 @@
+﻿<ul>
+    <li class="dropdown show-on-hover">
+        <a href="@Url.Action("Index", "ApplicationUsers")" data-toggle="dropdown">
+        <i class="fa fa-user"></i>
+        <span>Users</span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                @Html.ActionLink("List Users", "Index", "ApplicationUsers")
+            </li>
+            <li>
+                @Html.ActionLink("Add New User", "New", "ApplicationUsers")
+            </li>
+        </ul>
+    </li>
+</ul>
