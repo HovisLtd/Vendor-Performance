@@ -1,8 +1,9 @@
 ﻿<ul>
-    <li class="dropdown show-on-hover">
+    <li class="dropdown">
         <a href="@Url.Action("Index", "ApplicationUsers")" data-toggle="dropdown">
-        <i class="fa fa-user"></i>
-        <span>Users</span>
+            <i class="fa fa-user"></i>
+            <span>Users</span>
+            <i class="toggle-accordion"></i>
         </a>
         <ul class="dropdown-menu">
             <li>
@@ -10,6 +11,32 @@
             </li>
             <li>
                 @Html.ActionLink("Add New User", "New", "ApplicationUsers")
+            </li>
+        </ul>
+    </li>
+</ul>
+<ul>
+    <li class="dropdown">
+        <a href="@Url.Action("Index", "CategoryDropDown")" data-toggle="dropdown">
+            <i class="fa fa-university"></i>
+            <span>Master Data</span>
+            <i class="toggle-accordion"></i>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                @Html.ActionLink("Priority", "Index", "PriorityDropDown")
+            </li>
+            <li>
+                @Html.ActionLink("Contact Details", "Index", "ContactModeDropDown")
+            </li>
+            <li>
+                @Html.ActionLink("Category", "Index", "CategoryDropDown")
+            </li>
+            <li>
+                @Html.ActionLink("Supplier Rating", "Index", "SupplierRatingDropDown")
+            </li>
+            <li>
+                @Html.ActionLink("Document Type", "Index", "DocumentTypesDropDown")
             </li>
         </ul>
     </li>

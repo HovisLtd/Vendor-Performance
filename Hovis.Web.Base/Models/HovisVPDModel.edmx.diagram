@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e121cdf6002644c99fb4e757842ea930" Name="Diagram1">
+        <EntityTypeShape EntityType="HovisVPDModel.t_HovisVPD_Category_Drop_Down" Width="1.5" PointX="2.625" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HovisVPDModel.t_HovisVPD_Contact_Mode_Drop_Down" Width="1.5" PointX="6.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HovisVPDModel.t_HovisVPD_Document_Types_Drop_Down" Width="1.5" PointX="2.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HovisVPDModel.t_HovisVPD_Priority_Drop_Down" Width="1.5" PointX="7" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="HovisVPDModel.t_HovisVPD_Supplier_Rating_Drop_Down" Width="1.5" PointX="2.625" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HovisVPDModel.t_HovisVPD_Transaction_Log" Width="1.5" PointX="8.375" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HovisVPDModel.v_HovisVPD_MasterData_Plants" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HovisVPDModel.t_HovisVPD_Details" Width="1.5" PointX="4.75" PointY="3.375" />
+        <AssociationConnector Association="HovisVPDModel.t_HovisVPD_Category_Drop_Downt_HovisVPD_Details" />
+        <AssociationConnector Association="HovisVPDModel.v_HovisVPD_MasterData_Plantst_HovisVPD_Details" />
+        <AssociationConnector Association="HovisVPDModel.t_HovisVPD_Priority_Drop_Downt_HovisVPD_Details" />
+        <AssociationConnector Association="HovisVPDModel.t_HovisVPD_Supplier_Rating_Drop_Downt_HovisVPD_Details" />
+        <EntityTypeShape EntityType="HovisVPDModel.t_HovisVPD_Documents" Width="1.5" PointX="4.75" PointY="0.625" />
+        <AssociationConnector Association="HovisVPDModel.t_HovisVPD_Document_Types_Drop_Downt_HovisVPD_Documents" />
+        <AssociationConnector Association="HovisVPDModel.t_HovisVPD_Detailst_HovisVPD_Documents" />
+        <EntityTypeShape EntityType="HovisVPDModel.v_HovisVPD_Conformance_Stats_Detail" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="HovisVPDModel.v_HovisVPD_Details" Width="1.5" PointX="9.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

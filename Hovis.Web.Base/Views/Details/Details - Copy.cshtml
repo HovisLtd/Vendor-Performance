@@ -1,0 +1,194 @@
+﻿@model Hovis.Web.Base.Models.t_HovisVPD_Details
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>t_HovisVPD_Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFirstRaised)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFirstRaised)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RaisedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RaisedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BakeryPONumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BakeryPONumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptionOfIssue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionOfIssue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierContactDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierContactDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierContactName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierContactName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActionsRequired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActionsRequired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OthersInvolved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OthersInvolved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CloseOutComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CloseOutComments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssueClosureDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssueClosureDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryLotNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryLotNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierReferenceNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierReferenceNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.t_HovisVPD_Category_Drop_Down.CatDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.t_HovisVPD_Category_Drop_Down.CatDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.v_HovisVPD_MasterData_Plants.BakeryDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.v_HovisVPD_MasterData_Plants.BakeryDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.t_HovisVPD_Priority_Drop_Down.PriorityDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.t_HovisVPD_Priority_Drop_Down.PriorityDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.t_HovisVPD_Supplier_Rating_Drop_Down.RatingDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.t_HovisVPD_Supplier_Rating_Drop_Down.RatingDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VPDRefNo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

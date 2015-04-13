@@ -1,0 +1,26 @@
+﻿@model Hovis.Web.Base.Models.t_HovisVPD_Contact_Mode_Drop_Down
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>t_HovisVPD_Contact_Mode_Drop_Down</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ContactID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

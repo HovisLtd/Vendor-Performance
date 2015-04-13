@@ -1,0 +1,719 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HovisVPDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="t_HovisVPD_Category_Drop_Down">
+          <Key>
+            <PropertyRef Name="CatID" />
+          </Key>
+          <Property Name="CatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CatDescription" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="t_HovisVPD_Contact_Mode_Drop_Down">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactDescription" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="t_HovisVPD_Details">
+          <Key>
+            <PropertyRef Name="VPDRefNo" />
+          </Key>
+          <Property Name="VPDRefNo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateFirstRaised" Type="datetime" />
+          <Property Name="RaisedBy" Type="varchar" MaxLength="255" />
+          <Property Name="BakeryPONumber" Type="varchar" MaxLength="255" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="255" />
+          <Property Name="ItemDescription" Type="varchar" MaxLength="255" />
+          <Property Name="DescriptionOfIssue" Type="varchar(max)" />
+          <Property Name="IssueCategory" Type="int" />
+          <Property Name="Bakery" Type="varchar" MaxLength="4" />
+          <Property Name="SupplierName" Type="varchar" MaxLength="255" />
+          <Property Name="SupplierContactDetails" Type="varchar" MaxLength="255" />
+          <Property Name="SupplierContactName" Type="varchar" MaxLength="255" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="ActionsRequired" Type="varchar(max)" />
+          <Property Name="OthersInvolved" Type="varchar" MaxLength="255" />
+          <Property Name="LastUpdates" Type="varchar(max)" />
+          <Property Name="CloseOutComments" Type="varchar(max)" />
+          <Property Name="IssueClosureDate" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="SupplierEngagement" Type="int" />
+          <Property Name="DeliveryLotNo" Type="varchar" MaxLength="255" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="SupplierReferenceNo" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="t_HovisVPD_Document_Types_Drop_Down">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeDescription" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="t_HovisVPD_Documents">
+          <Key>
+            <PropertyRef Name="RecID" />
+          </Key>
+          <Property Name="RecID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VPDRefNo" Type="bigint" />
+          <Property Name="Title" Type="varchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Owner" Type="nvarchar(max)" />
+          <Property Name="FileLink" Type="nvarchar(max)" />
+          <Property Name="DocType" Type="int" />
+          <Property Name="DateCreated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="t_HovisVPD_Priority_Drop_Down">
+          <Key>
+            <PropertyRef Name="PriorityID" />
+          </Key>
+          <Property Name="PriorityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PriorityDescription" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="t_HovisVPD_Supplier_Rating_Drop_Down">
+          <Key>
+            <PropertyRef Name="RatingID" />
+          </Key>
+          <Property Name="RatingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RatingDescription" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="t_HovisVPD_Transaction_Log">
+          <Key>
+            <PropertyRef Name="RecID" />
+          </Key>
+          <Property Name="RecID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VPDRefNo" Type="bigint" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="SignedInName" Type="varchar" MaxLength="255" />
+          <Property Name="UpdateDescription" Type="varchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HovisVPD.dbo.v_HovisVPD_Conformance_Stats_Detail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_HovisVPD_Conformance_Stats_Detail">
+          <Key>
+            <PropertyRef Name="VPDRefNo" />
+            <PropertyRef Name="OpenCritical" />
+            <PropertyRef Name="AllCritical" />
+            <PropertyRef Name="OpenMajor" />
+            <PropertyRef Name="AllMajor" />
+            <PropertyRef Name="OpenMinor" />
+            <PropertyRef Name="AllMinor" />
+            <PropertyRef Name="OpenedLast10Days" />
+            <PropertyRef Name="ClosedLast10Days" />
+            <PropertyRef Name="AllOpen" />
+            <PropertyRef Name="AllClosed" />
+            <PropertyRef Name="AllLoged" />
+          </Key>
+          <Property Name="VPDRefNo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WeekRaised" Type="int" />
+          <Property Name="MonthRaised" Type="int" />
+          <Property Name="YearRaised" Type="int" />
+          <Property Name="OpenCritical" Type="int" Nullable="false" />
+          <Property Name="AllCritical" Type="int" Nullable="false" />
+          <Property Name="OpenMajor" Type="int" Nullable="false" />
+          <Property Name="AllMajor" Type="int" Nullable="false" />
+          <Property Name="OpenMinor" Type="int" Nullable="false" />
+          <Property Name="AllMinor" Type="int" Nullable="false" />
+          <Property Name="OpenedLast10Days" Type="int" Nullable="false" />
+          <Property Name="ClosedLast10Days" Type="int" Nullable="false" />
+          <Property Name="AllOpen" Type="int" Nullable="false" />
+          <Property Name="AllClosed" Type="int" Nullable="false" />
+          <Property Name="AllLoged" Type="int" Nullable="false" />
+          <Property Name="Bakery" Type="varchar" MaxLength="4" />
+          <Property Name="SupplierName" Type="varchar" MaxLength="255" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HovisVPD.dbo.v_HovisVPD_Details' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_HovisVPD_Details">
+          <Key>
+            <PropertyRef Name="VPDRefNo" />
+          </Key>
+          <Property Name="VPDRefNo" Type="bigint" Nullable="false" />
+          <Property Name="DateFirstRaised" Type="datetime" />
+          <Property Name="RaisedBy" Type="varchar" MaxLength="255" />
+          <Property Name="BakeryPONumber" Type="varchar" MaxLength="255" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="255" />
+          <Property Name="ItemDescription" Type="varchar" MaxLength="255" />
+          <Property Name="DescriptionOfIssue" Type="varchar(max)" />
+          <Property Name="IssueCategory" Type="int" />
+          <Property Name="IssueCategoryDesc" Type="varchar" MaxLength="255" />
+          <Property Name="Bakery" Type="varchar" MaxLength="4" />
+          <Property Name="BakeryDesc" Type="varchar" MaxLength="255" />
+          <Property Name="SupplierName" Type="varchar" MaxLength="255" />
+          <Property Name="SupplierContactDetails" Type="varchar" MaxLength="255" />
+          <Property Name="SupplierContactName" Type="varchar" MaxLength="255" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="PriorityDescription" Type="varchar" MaxLength="255" />
+          <Property Name="ActionsRequired" Type="varchar(max)" />
+          <Property Name="OthersInvolved" Type="varchar" MaxLength="255" />
+          <Property Name="LastUpdates" Type="varchar(max)" />
+          <Property Name="CloseOutComments" Type="varchar(max)" />
+          <Property Name="IssueClosureDate" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="SupplierEngagement" Type="int" />
+          <Property Name="SupplierEngagementDesc" Type="varchar" MaxLength="255" />
+          <Property Name="DeliveryLotNo" Type="varchar" MaxLength="255" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="SupplierReferenceNo" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HovisVPD.dbo.v_HovisVPD_MasterData_Plants' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_HovisVPD_MasterData_Plants">
+          
+          <Key>
+            <PropertyRef Name="Bakery" />
+          </Key>
+          <Property Name="AutoIDCode" Type="int" Nullable="false" />
+          <Property Name="Bakery" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="BakeryDesc" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityContainer Name="HovisVPDModelStoreContainer">
+          <EntitySet Name="t_HovisVPD_Category_Drop_Down" EntityType="Self.t_HovisVPD_Category_Drop_Down" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_HovisVPD_Contact_Mode_Drop_Down" EntityType="Self.t_HovisVPD_Contact_Mode_Drop_Down" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_HovisVPD_Details" EntityType="Self.t_HovisVPD_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_HovisVPD_Document_Types_Drop_Down" EntityType="Self.t_HovisVPD_Document_Types_Drop_Down" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_HovisVPD_Documents" EntityType="Self.t_HovisVPD_Documents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_HovisVPD_Priority_Drop_Down" EntityType="Self.t_HovisVPD_Priority_Drop_Down" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_HovisVPD_Supplier_Rating_Drop_Down" EntityType="Self.t_HovisVPD_Supplier_Rating_Drop_Down" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_HovisVPD_Transaction_Log" EntityType="Self.t_HovisVPD_Transaction_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="v_HovisVPD_Conformance_Stats_Detail" EntityType="Self.v_HovisVPD_Conformance_Stats_Detail" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_HovisVPD_Conformance_Stats_Detail].[VPDRefNo] AS [VPDRefNo], 
+    [v_HovisVPD_Conformance_Stats_Detail].[WeekRaised] AS [WeekRaised], 
+    [v_HovisVPD_Conformance_Stats_Detail].[MonthRaised] AS [MonthRaised], 
+    [v_HovisVPD_Conformance_Stats_Detail].[YearRaised] AS [YearRaised], 
+    [v_HovisVPD_Conformance_Stats_Detail].[OpenCritical] AS [OpenCritical], 
+    [v_HovisVPD_Conformance_Stats_Detail].[AllCritical] AS [AllCritical], 
+    [v_HovisVPD_Conformance_Stats_Detail].[OpenMajor] AS [OpenMajor], 
+    [v_HovisVPD_Conformance_Stats_Detail].[AllMajor] AS [AllMajor], 
+    [v_HovisVPD_Conformance_Stats_Detail].[OpenMinor] AS [OpenMinor], 
+    [v_HovisVPD_Conformance_Stats_Detail].[AllMinor] AS [AllMinor], 
+    [v_HovisVPD_Conformance_Stats_Detail].[OpenedLast10Days] AS [OpenedLast10Days], 
+    [v_HovisVPD_Conformance_Stats_Detail].[ClosedLast10Days] AS [ClosedLast10Days], 
+    [v_HovisVPD_Conformance_Stats_Detail].[AllOpen] AS [AllOpen], 
+    [v_HovisVPD_Conformance_Stats_Detail].[AllClosed] AS [AllClosed], 
+    [v_HovisVPD_Conformance_Stats_Detail].[AllLoged] AS [AllLoged], 
+    [v_HovisVPD_Conformance_Stats_Detail].[Bakery] AS [Bakery], 
+    [v_HovisVPD_Conformance_Stats_Detail].[SupplierName] AS [SupplierName], 
+    [v_HovisVPD_Conformance_Stats_Detail].[ItemCode] AS [ItemCode]
+    FROM [dbo].[v_HovisVPD_Conformance_Stats_Detail] AS [v_HovisVPD_Conformance_Stats_Detail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_HovisVPD_Details" EntityType="Self.v_HovisVPD_Details" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_HovisVPD_Details].[VPDRefNo] AS [VPDRefNo], 
+    [v_HovisVPD_Details].[DateFirstRaised] AS [DateFirstRaised], 
+    [v_HovisVPD_Details].[RaisedBy] AS [RaisedBy], 
+    [v_HovisVPD_Details].[BakeryPONumber] AS [BakeryPONumber], 
+    [v_HovisVPD_Details].[ItemCode] AS [ItemCode], 
+    [v_HovisVPD_Details].[ItemDescription] AS [ItemDescription], 
+    [v_HovisVPD_Details].[DescriptionOfIssue] AS [DescriptionOfIssue], 
+    [v_HovisVPD_Details].[IssueCategory] AS [IssueCategory], 
+    [v_HovisVPD_Details].[IssueCategoryDesc] AS [IssueCategoryDesc], 
+    [v_HovisVPD_Details].[Bakery] AS [Bakery], 
+    [v_HovisVPD_Details].[BakeryDesc] AS [BakeryDesc], 
+    [v_HovisVPD_Details].[SupplierName] AS [SupplierName], 
+    [v_HovisVPD_Details].[SupplierContactDetails] AS [SupplierContactDetails], 
+    [v_HovisVPD_Details].[SupplierContactName] AS [SupplierContactName], 
+    [v_HovisVPD_Details].[Priority] AS [Priority], 
+    [v_HovisVPD_Details].[PriorityDescription] AS [PriorityDescription], 
+    [v_HovisVPD_Details].[ActionsRequired] AS [ActionsRequired], 
+    [v_HovisVPD_Details].[OthersInvolved] AS [OthersInvolved], 
+    [v_HovisVPD_Details].[LastUpdates] AS [LastUpdates], 
+    [v_HovisVPD_Details].[CloseOutComments] AS [CloseOutComments], 
+    [v_HovisVPD_Details].[IssueClosureDate] AS [IssueClosureDate], 
+    [v_HovisVPD_Details].[Status] AS [Status], 
+    [v_HovisVPD_Details].[SupplierEngagement] AS [SupplierEngagement], 
+    [v_HovisVPD_Details].[SupplierEngagementDesc] AS [SupplierEngagementDesc], 
+    [v_HovisVPD_Details].[DeliveryLotNo] AS [DeliveryLotNo], 
+    [v_HovisVPD_Details].[DeliveryDate] AS [DeliveryDate], 
+    [v_HovisVPD_Details].[SupplierReferenceNo] AS [SupplierReferenceNo]
+    FROM [dbo].[v_HovisVPD_Details] AS [v_HovisVPD_Details]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_HovisVPD_MasterData_Plants" EntityType="Self.v_HovisVPD_MasterData_Plants" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_HovisVPD_MasterData_Plants].[AutoIDCode] AS [AutoIDCode], 
+    [v_HovisVPD_MasterData_Plants].[Bakery] AS [Bakery], 
+    [v_HovisVPD_MasterData_Plants].[BakeryDesc] AS [BakeryDesc]
+    FROM [dbo].[v_HovisVPD_MasterData_Plants] AS [v_HovisVPD_MasterData_Plants]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HovisVPDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="t_HovisVPD_Category_Drop_Down">
+          <Key>
+            <PropertyRef Name="CatID" />
+          </Key>
+          <Property Name="CatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CatDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="t_HovisVPD_Details" Relationship="HovisVPDModel.t_HovisVPD_Category_Drop_Downt_HovisVPD_Details" FromRole="t_HovisVPD_Category_Drop_Down" ToRole="t_HovisVPD_Details" />
+        </EntityType>
+        <EntityType Name="t_HovisVPD_Contact_Mode_Drop_Down">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_HovisVPD_Document_Types_Drop_Down">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="t_HovisVPD_Documents" Relationship="HovisVPDModel.t_HovisVPD_Document_Types_Drop_Downt_HovisVPD_Documents" FromRole="t_HovisVPD_Document_Types_Drop_Down" ToRole="t_HovisVPD_Documents" />
+        </EntityType>
+        <EntityType Name="t_HovisVPD_Priority_Drop_Down">
+          <Key>
+            <PropertyRef Name="PriorityID" />
+          </Key>
+          <Property Name="PriorityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PriorityDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="t_HovisVPD_Details" Relationship="HovisVPDModel.t_HovisVPD_Priority_Drop_Downt_HovisVPD_Details" FromRole="t_HovisVPD_Priority_Drop_Down" ToRole="t_HovisVPD_Details" />
+        </EntityType>
+        <EntityType Name="t_HovisVPD_Supplier_Rating_Drop_Down">
+          <Key>
+            <PropertyRef Name="RatingID" />
+          </Key>
+          <Property Name="RatingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RatingDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="t_HovisVPD_Details" Relationship="HovisVPDModel.t_HovisVPD_Supplier_Rating_Drop_Downt_HovisVPD_Details" FromRole="t_HovisVPD_Supplier_Rating_Drop_Down" ToRole="t_HovisVPD_Details" />
+        </EntityType>
+        <EntityType Name="t_HovisVPD_Transaction_Log">
+          <Key>
+            <PropertyRef Name="RecID" />
+          </Key>
+          <Property Name="RecID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VPDRefNo" Type="Int64" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="SignedInName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_HovisVPD_MasterData_Plants">
+          <Key>
+            <PropertyRef Name="Bakery" />
+          </Key>
+          <Property Name="AutoIDCode" Type="Int32" Nullable="false" />
+          <Property Name="Bakery" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BakeryDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="t_HovisVPD_Details" Relationship="HovisVPDModel.v_HovisVPD_MasterData_Plantst_HovisVPD_Details" FromRole="v_HovisVPD_MasterData_Plants" ToRole="t_HovisVPD_Details" />
+        </EntityType>
+        <EntityContainer Name="HovisVPDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="t_HovisVPD_Category_Drop_Down" EntityType="Self.t_HovisVPD_Category_Drop_Down" />
+          <EntitySet Name="t_HovisVPD_Contact_Mode_Drop_Down" EntityType="Self.t_HovisVPD_Contact_Mode_Drop_Down" />
+          <EntitySet Name="t_HovisVPD_Document_Types_Drop_Down" EntityType="Self.t_HovisVPD_Document_Types_Drop_Down" />
+          <EntitySet Name="t_HovisVPD_Priority_Drop_Down" EntityType="Self.t_HovisVPD_Priority_Drop_Down" />
+          <EntitySet Name="t_HovisVPD_Supplier_Rating_Drop_Down" EntityType="Self.t_HovisVPD_Supplier_Rating_Drop_Down" />
+          <EntitySet Name="t_HovisVPD_Transaction_Log" EntityType="Self.t_HovisVPD_Transaction_Log" />
+          <EntitySet Name="v_HovisVPD_MasterData_Plants" EntityType="Self.v_HovisVPD_MasterData_Plants" />
+          <EntitySet Name="t_HovisVPD_Details" EntityType="HovisVPDModel.t_HovisVPD_Details" />
+          <AssociationSet Name="t_HovisVPD_Category_Drop_Downt_HovisVPD_Details" Association="HovisVPDModel.t_HovisVPD_Category_Drop_Downt_HovisVPD_Details">
+            <End Role="t_HovisVPD_Category_Drop_Down" EntitySet="t_HovisVPD_Category_Drop_Down" />
+            <End Role="t_HovisVPD_Details" EntitySet="t_HovisVPD_Details" />
+          </AssociationSet>
+          <AssociationSet Name="v_HovisVPD_MasterData_Plantst_HovisVPD_Details" Association="HovisVPDModel.v_HovisVPD_MasterData_Plantst_HovisVPD_Details">
+            <End Role="v_HovisVPD_MasterData_Plants" EntitySet="v_HovisVPD_MasterData_Plants" />
+            <End Role="t_HovisVPD_Details" EntitySet="t_HovisVPD_Details" />
+          </AssociationSet>
+          <AssociationSet Name="t_HovisVPD_Priority_Drop_Downt_HovisVPD_Details" Association="HovisVPDModel.t_HovisVPD_Priority_Drop_Downt_HovisVPD_Details">
+            <End Role="t_HovisVPD_Priority_Drop_Down" EntitySet="t_HovisVPD_Priority_Drop_Down" />
+            <End Role="t_HovisVPD_Details" EntitySet="t_HovisVPD_Details" />
+          </AssociationSet>
+          <AssociationSet Name="t_HovisVPD_Supplier_Rating_Drop_Downt_HovisVPD_Details" Association="HovisVPDModel.t_HovisVPD_Supplier_Rating_Drop_Downt_HovisVPD_Details">
+            <End Role="t_HovisVPD_Supplier_Rating_Drop_Down" EntitySet="t_HovisVPD_Supplier_Rating_Drop_Down" />
+            <End Role="t_HovisVPD_Details" EntitySet="t_HovisVPD_Details" />
+          </AssociationSet>
+          <EntitySet Name="t_HovisVPD_Documents" EntityType="HovisVPDModel.t_HovisVPD_Documents" />
+          <AssociationSet Name="t_HovisVPD_Document_Types_Drop_Downt_HovisVPD_Documents" Association="HovisVPDModel.t_HovisVPD_Document_Types_Drop_Downt_HovisVPD_Documents">
+            <End Role="t_HovisVPD_Document_Types_Drop_Down" EntitySet="t_HovisVPD_Document_Types_Drop_Down" />
+            <End Role="t_HovisVPD_Documents" EntitySet="t_HovisVPD_Documents" />
+          </AssociationSet>
+          <AssociationSet Name="t_HovisVPD_Detailst_HovisVPD_Documents" Association="HovisVPDModel.t_HovisVPD_Detailst_HovisVPD_Documents">
+            <End Role="t_HovisVPD_Details" EntitySet="t_HovisVPD_Details" />
+            <End Role="t_HovisVPD_Documents" EntitySet="t_HovisVPD_Documents" />
+          </AssociationSet>
+          <EntitySet Name="v_HovisVPD_Conformance_Stats_Detail" EntityType="HovisVPDModel.v_HovisVPD_Conformance_Stats_Detail" />
+          <EntitySet Name="v_HovisVPD_Details" EntityType="HovisVPDModel.v_HovisVPD_Details" />
+        </EntityContainer>
+        <EntityType Name="t_HovisVPD_Details">
+          <Key>
+            <PropertyRef Name="VPDRefNo" />
+          </Key>
+          <Property Name="VPDRefNo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateFirstRaised" Type="DateTime" Precision="3" />
+          <Property Name="RaisedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BakeryPONumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ItemDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionOfIssue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IssueCategory" Type="Int32" Nullable="false" />
+          <Property Name="Bakery" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SupplierName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierContactDetails" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierContactName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="ActionsRequired" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OthersInvolved" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdates" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CloseOutComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IssueClosureDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierEngagement" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryLotNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="SupplierReferenceNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="t_HovisVPD_Category_Drop_Down" Relationship="HovisVPDModel.t_HovisVPD_Category_Drop_Downt_HovisVPD_Details" FromRole="t_HovisVPD_Details" ToRole="t_HovisVPD_Category_Drop_Down" />
+          <NavigationProperty Name="v_HovisVPD_MasterData_Plants" Relationship="HovisVPDModel.v_HovisVPD_MasterData_Plantst_HovisVPD_Details" FromRole="t_HovisVPD_Details" ToRole="v_HovisVPD_MasterData_Plants" />
+          <NavigationProperty Name="t_HovisVPD_Priority_Drop_Down" Relationship="HovisVPDModel.t_HovisVPD_Priority_Drop_Downt_HovisVPD_Details" FromRole="t_HovisVPD_Details" ToRole="t_HovisVPD_Priority_Drop_Down" />
+          <NavigationProperty Name="t_HovisVPD_Supplier_Rating_Drop_Down" Relationship="HovisVPDModel.t_HovisVPD_Supplier_Rating_Drop_Downt_HovisVPD_Details" FromRole="t_HovisVPD_Details" ToRole="t_HovisVPD_Supplier_Rating_Drop_Down" />
+          <NavigationProperty Name="t_HovisVPD_Documents" Relationship="HovisVPDModel.t_HovisVPD_Detailst_HovisVPD_Documents" FromRole="t_HovisVPD_Details" ToRole="t_HovisVPD_Documents" />
+        </EntityType>
+        <Association Name="t_HovisVPD_Category_Drop_Downt_HovisVPD_Details">
+          <End Type="HovisVPDModel.t_HovisVPD_Category_Drop_Down" Role="t_HovisVPD_Category_Drop_Down" Multiplicity="1" />
+          <End Type="HovisVPDModel.t_HovisVPD_Details" Role="t_HovisVPD_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_HovisVPD_Category_Drop_Down">
+              <PropertyRef Name="CatID" />
+            </Principal>
+            <Dependent Role="t_HovisVPD_Details">
+              <PropertyRef Name="IssueCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="v_HovisVPD_MasterData_Plantst_HovisVPD_Details">
+          <End Type="HovisVPDModel.v_HovisVPD_MasterData_Plants" Role="v_HovisVPD_MasterData_Plants" Multiplicity="1" />
+          <End Type="HovisVPDModel.t_HovisVPD_Details" Role="t_HovisVPD_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="v_HovisVPD_MasterData_Plants">
+              <PropertyRef Name="Bakery" />
+            </Principal>
+            <Dependent Role="t_HovisVPD_Details">
+              <PropertyRef Name="Bakery" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="t_HovisVPD_Priority_Drop_Downt_HovisVPD_Details">
+          <End Type="HovisVPDModel.t_HovisVPD_Priority_Drop_Down" Role="t_HovisVPD_Priority_Drop_Down" Multiplicity="1" />
+          <End Type="HovisVPDModel.t_HovisVPD_Details" Role="t_HovisVPD_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_HovisVPD_Priority_Drop_Down">
+              <PropertyRef Name="PriorityID" />
+            </Principal>
+            <Dependent Role="t_HovisVPD_Details">
+              <PropertyRef Name="Priority" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="t_HovisVPD_Supplier_Rating_Drop_Downt_HovisVPD_Details">
+          <End Type="HovisVPDModel.t_HovisVPD_Supplier_Rating_Drop_Down" Role="t_HovisVPD_Supplier_Rating_Drop_Down" Multiplicity="1" />
+          <End Type="HovisVPDModel.t_HovisVPD_Details" Role="t_HovisVPD_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_HovisVPD_Supplier_Rating_Drop_Down">
+              <PropertyRef Name="RatingID" />
+            </Principal>
+            <Dependent Role="t_HovisVPD_Details">
+              <PropertyRef Name="SupplierEngagement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="t_HovisVPD_Documents">
+          <Key>
+            <PropertyRef Name="RecID" />
+          </Key>
+          <Property Name="RecID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VPDRefNo" Type="Int64" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocType" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="t_HovisVPD_Document_Types_Drop_Down" Relationship="HovisVPDModel.t_HovisVPD_Document_Types_Drop_Downt_HovisVPD_Documents" FromRole="t_HovisVPD_Documents" ToRole="t_HovisVPD_Document_Types_Drop_Down" />
+          <NavigationProperty Name="t_HovisVPD_Details" Relationship="HovisVPDModel.t_HovisVPD_Detailst_HovisVPD_Documents" FromRole="t_HovisVPD_Documents" ToRole="t_HovisVPD_Details" />
+        </EntityType>
+        <Association Name="t_HovisVPD_Document_Types_Drop_Downt_HovisVPD_Documents">
+          <End Type="HovisVPDModel.t_HovisVPD_Document_Types_Drop_Down" Role="t_HovisVPD_Document_Types_Drop_Down" Multiplicity="1" />
+          <End Type="HovisVPDModel.t_HovisVPD_Documents" Role="t_HovisVPD_Documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_HovisVPD_Document_Types_Drop_Down">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="t_HovisVPD_Documents">
+              <PropertyRef Name="DocType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="t_HovisVPD_Detailst_HovisVPD_Documents">
+          <End Type="HovisVPDModel.t_HovisVPD_Details" Role="t_HovisVPD_Details" Multiplicity="1" />
+          <End Type="HovisVPDModel.t_HovisVPD_Documents" Role="t_HovisVPD_Documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_HovisVPD_Details">
+              <PropertyRef Name="VPDRefNo" />
+            </Principal>
+            <Dependent Role="t_HovisVPD_Documents">
+              <PropertyRef Name="VPDRefNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="v_HovisVPD_Conformance_Stats_Detail">
+          <Key>
+            <PropertyRef Name="VPDRefNo" />
+            <PropertyRef Name="OpenCritical" />
+            <PropertyRef Name="AllCritical" />
+            <PropertyRef Name="OpenMajor" />
+            <PropertyRef Name="AllMajor" />
+            <PropertyRef Name="OpenMinor" />
+            <PropertyRef Name="AllMinor" />
+            <PropertyRef Name="OpenedLast10Days" />
+            <PropertyRef Name="ClosedLast10Days" />
+            <PropertyRef Name="AllOpen" />
+            <PropertyRef Name="AllClosed" />
+            <PropertyRef Name="AllLoged" />
+          </Key>
+          <Property Name="VPDRefNo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WeekRaised" Type="Int32" />
+          <Property Name="MonthRaised" Type="Int32" />
+          <Property Name="YearRaised" Type="Int32" />
+          <Property Name="OpenCritical" Type="Int32" Nullable="false" />
+          <Property Name="AllCritical" Type="Int32" Nullable="false" />
+          <Property Name="OpenMajor" Type="Int32" Nullable="false" />
+          <Property Name="AllMajor" Type="Int32" Nullable="false" />
+          <Property Name="OpenMinor" Type="Int32" Nullable="false" />
+          <Property Name="AllMinor" Type="Int32" Nullable="false" />
+          <Property Name="OpenedLast10Days" Type="Int32" Nullable="false" />
+          <Property Name="ClosedLast10Days" Type="Int32" Nullable="false" />
+          <Property Name="AllOpen" Type="Int32" Nullable="false" />
+          <Property Name="AllClosed" Type="Int32" Nullable="false" />
+          <Property Name="AllLoged" Type="Int32" Nullable="false" />
+          <Property Name="Bakery" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_HovisVPD_Details">
+          <Key>
+            <PropertyRef Name="VPDRefNo" />
+          </Key>
+          <Property Name="VPDRefNo" Type="Int64" Nullable="false" />
+          <Property Name="DateFirstRaised" Type="DateTime" Precision="3" />
+          <Property Name="RaisedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BakeryPONumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ItemDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionOfIssue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IssueCategory" Type="Int32" />
+          <Property Name="IssueCategoryDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Bakery" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="BakeryDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierContactDetails" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierContactName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="PriorityDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ActionsRequired" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OthersInvolved" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdates" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CloseOutComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IssueClosureDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierEngagement" Type="Int32" />
+          <Property Name="SupplierEngagementDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveryLotNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="SupplierReferenceNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HovisVPDModelStoreContainer" CdmEntityContainer="HovisVPDEntities">
+          <EntitySetMapping Name="t_HovisVPD_Category_Drop_Down">
+            <EntityTypeMapping TypeName="HovisVPDModel.t_HovisVPD_Category_Drop_Down">
+              <MappingFragment StoreEntitySet="t_HovisVPD_Category_Drop_Down">
+                <ScalarProperty Name="CatID" ColumnName="CatID" />
+                <ScalarProperty Name="CatDescription" ColumnName="CatDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_HovisVPD_Contact_Mode_Drop_Down">
+            <EntityTypeMapping TypeName="HovisVPDModel.t_HovisVPD_Contact_Mode_Drop_Down">
+              <MappingFragment StoreEntitySet="t_HovisVPD_Contact_Mode_Drop_Down">
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="ContactDescription" ColumnName="ContactDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_HovisVPD_Document_Types_Drop_Down">
+            <EntityTypeMapping TypeName="HovisVPDModel.t_HovisVPD_Document_Types_Drop_Down">
+              <MappingFragment StoreEntitySet="t_HovisVPD_Document_Types_Drop_Down">
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="TypeDescription" ColumnName="TypeDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_HovisVPD_Priority_Drop_Down">
+            <EntityTypeMapping TypeName="HovisVPDModel.t_HovisVPD_Priority_Drop_Down">
+              <MappingFragment StoreEntitySet="t_HovisVPD_Priority_Drop_Down">
+                <ScalarProperty Name="PriorityID" ColumnName="PriorityID" />
+                <ScalarProperty Name="PriorityDescription" ColumnName="PriorityDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_HovisVPD_Supplier_Rating_Drop_Down">
+            <EntityTypeMapping TypeName="HovisVPDModel.t_HovisVPD_Supplier_Rating_Drop_Down">
+              <MappingFragment StoreEntitySet="t_HovisVPD_Supplier_Rating_Drop_Down">
+                <ScalarProperty Name="RatingID" ColumnName="RatingID" />
+                <ScalarProperty Name="RatingDescription" ColumnName="RatingDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_HovisVPD_Transaction_Log">
+            <EntityTypeMapping TypeName="HovisVPDModel.t_HovisVPD_Transaction_Log">
+              <MappingFragment StoreEntitySet="t_HovisVPD_Transaction_Log">
+                <ScalarProperty Name="RecID" ColumnName="RecID" />
+                <ScalarProperty Name="VPDRefNo" ColumnName="VPDRefNo" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="SignedInName" ColumnName="SignedInName" />
+                <ScalarProperty Name="UpdateDescription" ColumnName="UpdateDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_HovisVPD_MasterData_Plants">
+            <EntityTypeMapping TypeName="HovisVPDModel.v_HovisVPD_MasterData_Plants">
+              <MappingFragment StoreEntitySet="v_HovisVPD_MasterData_Plants">
+                <ScalarProperty Name="AutoIDCode" ColumnName="AutoIDCode" />
+                <ScalarProperty Name="Bakery" ColumnName="Bakery" />
+                <ScalarProperty Name="BakeryDesc" ColumnName="BakeryDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_HovisVPD_Details">
+            <EntityTypeMapping TypeName="HovisVPDModel.t_HovisVPD_Details">
+              <MappingFragment StoreEntitySet="t_HovisVPD_Details">
+                <ScalarProperty Name="SupplierReferenceNo" ColumnName="SupplierReferenceNo" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="DeliveryLotNo" ColumnName="DeliveryLotNo" />
+                <ScalarProperty Name="SupplierEngagement" ColumnName="SupplierEngagement" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IssueClosureDate" ColumnName="IssueClosureDate" />
+                <ScalarProperty Name="CloseOutComments" ColumnName="CloseOutComments" />
+                <ScalarProperty Name="LastUpdates" ColumnName="LastUpdates" />
+                <ScalarProperty Name="OthersInvolved" ColumnName="OthersInvolved" />
+                <ScalarProperty Name="ActionsRequired" ColumnName="ActionsRequired" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="SupplierContactName" ColumnName="SupplierContactName" />
+                <ScalarProperty Name="SupplierContactDetails" ColumnName="SupplierContactDetails" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="Bakery" ColumnName="Bakery" />
+                <ScalarProperty Name="IssueCategory" ColumnName="IssueCategory" />
+                <ScalarProperty Name="DescriptionOfIssue" ColumnName="DescriptionOfIssue" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="BakeryPONumber" ColumnName="BakeryPONumber" />
+                <ScalarProperty Name="RaisedBy" ColumnName="RaisedBy" />
+                <ScalarProperty Name="DateFirstRaised" ColumnName="DateFirstRaised" />
+                <ScalarProperty Name="VPDRefNo" ColumnName="VPDRefNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_HovisVPD_Documents">
+            <EntityTypeMapping TypeName="HovisVPDModel.t_HovisVPD_Documents">
+              <MappingFragment StoreEntitySet="t_HovisVPD_Documents">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DocType" ColumnName="DocType" />
+                <ScalarProperty Name="FileLink" ColumnName="FileLink" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="VPDRefNo" ColumnName="VPDRefNo" />
+                <ScalarProperty Name="RecID" ColumnName="RecID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_HovisVPD_Conformance_Stats_Detail">
+            <EntityTypeMapping TypeName="HovisVPDModel.v_HovisVPD_Conformance_Stats_Detail">
+              <MappingFragment StoreEntitySet="v_HovisVPD_Conformance_Stats_Detail">
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="Bakery" ColumnName="Bakery" />
+                <ScalarProperty Name="AllLoged" ColumnName="AllLoged" />
+                <ScalarProperty Name="AllClosed" ColumnName="AllClosed" />
+                <ScalarProperty Name="AllOpen" ColumnName="AllOpen" />
+                <ScalarProperty Name="ClosedLast10Days" ColumnName="ClosedLast10Days" />
+                <ScalarProperty Name="OpenedLast10Days" ColumnName="OpenedLast10Days" />
+                <ScalarProperty Name="AllMinor" ColumnName="AllMinor" />
+                <ScalarProperty Name="OpenMinor" ColumnName="OpenMinor" />
+                <ScalarProperty Name="AllMajor" ColumnName="AllMajor" />
+                <ScalarProperty Name="OpenMajor" ColumnName="OpenMajor" />
+                <ScalarProperty Name="AllCritical" ColumnName="AllCritical" />
+                <ScalarProperty Name="OpenCritical" ColumnName="OpenCritical" />
+                <ScalarProperty Name="YearRaised" ColumnName="YearRaised" />
+                <ScalarProperty Name="MonthRaised" ColumnName="MonthRaised" />
+                <ScalarProperty Name="WeekRaised" ColumnName="WeekRaised" />
+                <ScalarProperty Name="VPDRefNo" ColumnName="VPDRefNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_HovisVPD_Details">
+            <EntityTypeMapping TypeName="HovisVPDModel.v_HovisVPD_Details">
+              <MappingFragment StoreEntitySet="v_HovisVPD_Details">
+                <ScalarProperty Name="SupplierReferenceNo" ColumnName="SupplierReferenceNo" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="DeliveryLotNo" ColumnName="DeliveryLotNo" />
+                <ScalarProperty Name="SupplierEngagementDesc" ColumnName="SupplierEngagementDesc" />
+                <ScalarProperty Name="SupplierEngagement" ColumnName="SupplierEngagement" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IssueClosureDate" ColumnName="IssueClosureDate" />
+                <ScalarProperty Name="CloseOutComments" ColumnName="CloseOutComments" />
+                <ScalarProperty Name="LastUpdates" ColumnName="LastUpdates" />
+                <ScalarProperty Name="OthersInvolved" ColumnName="OthersInvolved" />
+                <ScalarProperty Name="ActionsRequired" ColumnName="ActionsRequired" />
+                <ScalarProperty Name="PriorityDescription" ColumnName="PriorityDescription" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="SupplierContactName" ColumnName="SupplierContactName" />
+                <ScalarProperty Name="SupplierContactDetails" ColumnName="SupplierContactDetails" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="BakeryDesc" ColumnName="BakeryDesc" />
+                <ScalarProperty Name="Bakery" ColumnName="Bakery" />
+                <ScalarProperty Name="IssueCategoryDesc" ColumnName="IssueCategoryDesc" />
+                <ScalarProperty Name="IssueCategory" ColumnName="IssueCategory" />
+                <ScalarProperty Name="DescriptionOfIssue" ColumnName="DescriptionOfIssue" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="BakeryPONumber" ColumnName="BakeryPONumber" />
+                <ScalarProperty Name="RaisedBy" ColumnName="RaisedBy" />
+                <ScalarProperty Name="DateFirstRaised" ColumnName="DateFirstRaised" />
+                <ScalarProperty Name="VPDRefNo" ColumnName="VPDRefNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

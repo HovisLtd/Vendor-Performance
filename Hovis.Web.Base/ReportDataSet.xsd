@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportDataSet" targetNamespace="http://tempuri.org/ReportDataSet.xsd" xmlns:mstns="http://tempuri.org/ReportDataSet.xsd" xmlns="http://tempuri.org/ReportDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=redsql01.hovis.biz;Initial Catalog=HovisVPD;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" IsAppSettingsProperty="false" Modifier="Assembly" Name="HovisVPDEntities (VendorPerformance)" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="v_HovisVPD_DetailsTableAdapter" GeneratorDataComponentClassName="v_HovisVPD_DetailsTableAdapter" Name="v_HovisVPD_Details" UserDataComponentName="v_HovisVPD_DetailsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HovisVPDEntities (VendorPerformance)" DbObjectName="HovisVPD.dbo.v_HovisVPD_Details" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT VPDRefNo, DateFirstRaised, RaisedBy, BakeryPONumber, ItemCode, ItemDescription, DescriptionOfIssue, IssueCategory, IssueCategoryDesc, Bakery, BakeryDesc, SupplierName, SupplierContactDetails, SupplierContactName, Priority, PriorityDescription, ActionsRequired, OthersInvolved, LastUpdates, CloseOutComments, IssueClosureDate, Status, SupplierEngagement, SupplierEngagementDesc, DeliveryLotNo, DeliveryDate, SupplierReferenceNo FROM dbo.v_HovisVPD_Details</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="VPDRefNo" DataSetColumn="VPDRefNo" />
+              <Mapping SourceColumn="DateFirstRaised" DataSetColumn="DateFirstRaised" />
+              <Mapping SourceColumn="RaisedBy" DataSetColumn="RaisedBy" />
+              <Mapping SourceColumn="BakeryPONumber" DataSetColumn="BakeryPONumber" />
+              <Mapping SourceColumn="ItemCode" DataSetColumn="ItemCode" />
+              <Mapping SourceColumn="ItemDescription" DataSetColumn="ItemDescription" />
+              <Mapping SourceColumn="DescriptionOfIssue" DataSetColumn="DescriptionOfIssue" />
+              <Mapping SourceColumn="IssueCategory" DataSetColumn="IssueCategory" />
+              <Mapping SourceColumn="IssueCategoryDesc" DataSetColumn="IssueCategoryDesc" />
+              <Mapping SourceColumn="Bakery" DataSetColumn="Bakery" />
+              <Mapping SourceColumn="BakeryDesc" DataSetColumn="BakeryDesc" />
+              <Mapping SourceColumn="SupplierName" DataSetColumn="SupplierName" />
+              <Mapping SourceColumn="SupplierContactDetails" DataSetColumn="SupplierContactDetails" />
+              <Mapping SourceColumn="SupplierContactName" DataSetColumn="SupplierContactName" />
+              <Mapping SourceColumn="Priority" DataSetColumn="Priority" />
+              <Mapping SourceColumn="PriorityDescription" DataSetColumn="PriorityDescription" />
+              <Mapping SourceColumn="ActionsRequired" DataSetColumn="ActionsRequired" />
+              <Mapping SourceColumn="OthersInvolved" DataSetColumn="OthersInvolved" />
+              <Mapping SourceColumn="LastUpdates" DataSetColumn="LastUpdates" />
+              <Mapping SourceColumn="CloseOutComments" DataSetColumn="CloseOutComments" />
+              <Mapping SourceColumn="IssueClosureDate" DataSetColumn="IssueClosureDate" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="SupplierEngagement" DataSetColumn="SupplierEngagement" />
+              <Mapping SourceColumn="SupplierEngagementDesc" DataSetColumn="SupplierEngagementDesc" />
+              <Mapping SourceColumn="DeliveryLotNo" DataSetColumn="DeliveryLotNo" />
+              <Mapping SourceColumn="DeliveryDate" DataSetColumn="DeliveryDate" />
+              <Mapping SourceColumn="SupplierReferenceNo" DataSetColumn="SupplierReferenceNo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReportDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ReportDataSet" msprop:Generator_UserDSName="ReportDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="v_HovisVPD_Details" msprop:Generator_TableClassName="v_HovisVPD_DetailsDataTable" msprop:Generator_TableVarName="tablev_HovisVPD_Details" msprop:Generator_TablePropName="v_HovisVPD_Details" msprop:Generator_RowDeletingName="v_HovisVPD_DetailsRowDeleting" msprop:Generator_RowChangingName="v_HovisVPD_DetailsRowChanging" msprop:Generator_RowEvHandlerName="v_HovisVPD_DetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="v_HovisVPD_DetailsRowDeleted" msprop:Generator_UserTableName="v_HovisVPD_Details" msprop:Generator_RowChangedName="v_HovisVPD_DetailsRowChanged" msprop:Generator_RowEvArgName="v_HovisVPD_DetailsRowChangeEvent" msprop:Generator_RowClassName="v_HovisVPD_DetailsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VPDRefNo" msprop:Generator_ColumnVarNameInTable="columnVPDRefNo" msprop:Generator_ColumnPropNameInRow="VPDRefNo" msprop:Generator_ColumnPropNameInTable="VPDRefNoColumn" msprop:Generator_UserColumnName="VPDRefNo" type="xs:long" />
+              <xs:element name="DateFirstRaised" msprop:Generator_ColumnVarNameInTable="columnDateFirstRaised" msprop:Generator_ColumnPropNameInRow="DateFirstRaised" msprop:Generator_ColumnPropNameInTable="DateFirstRaisedColumn" msprop:Generator_UserColumnName="DateFirstRaised" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RaisedBy" msprop:Generator_ColumnVarNameInTable="columnRaisedBy" msprop:Generator_ColumnPropNameInRow="RaisedBy" msprop:Generator_ColumnPropNameInTable="RaisedByColumn" msprop:Generator_UserColumnName="RaisedBy" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BakeryPONumber" msprop:Generator_ColumnVarNameInTable="columnBakeryPONumber" msprop:Generator_ColumnPropNameInRow="BakeryPONumber" msprop:Generator_ColumnPropNameInTable="BakeryPONumberColumn" msprop:Generator_UserColumnName="BakeryPONumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItemCode" msprop:Generator_ColumnVarNameInTable="columnItemCode" msprop:Generator_ColumnPropNameInRow="ItemCode" msprop:Generator_ColumnPropNameInTable="ItemCodeColumn" msprop:Generator_UserColumnName="ItemCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItemDescription" msprop:Generator_ColumnVarNameInTable="columnItemDescription" msprop:Generator_ColumnPropNameInRow="ItemDescription" msprop:Generator_ColumnPropNameInTable="ItemDescriptionColumn" msprop:Generator_UserColumnName="ItemDescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DescriptionOfIssue" msprop:Generator_ColumnVarNameInTable="columnDescriptionOfIssue" msprop:Generator_ColumnPropNameInRow="DescriptionOfIssue" msprop:Generator_ColumnPropNameInTable="DescriptionOfIssueColumn" msprop:Generator_UserColumnName="DescriptionOfIssue" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IssueCategory" msprop:Generator_ColumnVarNameInTable="columnIssueCategory" msprop:Generator_ColumnPropNameInRow="IssueCategory" msprop:Generator_ColumnPropNameInTable="IssueCategoryColumn" msprop:Generator_UserColumnName="IssueCategory" type="xs:int" minOccurs="0" />
+              <xs:element name="IssueCategoryDesc" msprop:Generator_ColumnVarNameInTable="columnIssueCategoryDesc" msprop:Generator_ColumnPropNameInRow="IssueCategoryDesc" msprop:Generator_ColumnPropNameInTable="IssueCategoryDescColumn" msprop:Generator_UserColumnName="IssueCategoryDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bakery" msprop:Generator_ColumnVarNameInTable="columnBakery" msprop:Generator_ColumnPropNameInRow="Bakery" msprop:Generator_ColumnPropNameInTable="BakeryColumn" msprop:Generator_UserColumnName="Bakery" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BakeryDesc" msprop:Generator_ColumnVarNameInTable="columnBakeryDesc" msprop:Generator_ColumnPropNameInRow="BakeryDesc" msprop:Generator_ColumnPropNameInTable="BakeryDescColumn" msprop:Generator_UserColumnName="BakeryDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SupplierName" msprop:Generator_ColumnVarNameInTable="columnSupplierName" msprop:Generator_ColumnPropNameInRow="SupplierName" msprop:Generator_ColumnPropNameInTable="SupplierNameColumn" msprop:Generator_UserColumnName="SupplierName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SupplierContactDetails" msprop:Generator_ColumnVarNameInTable="columnSupplierContactDetails" msprop:Generator_ColumnPropNameInRow="SupplierContactDetails" msprop:Generator_ColumnPropNameInTable="SupplierContactDetailsColumn" msprop:Generator_UserColumnName="SupplierContactDetails" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SupplierContactName" msprop:Generator_ColumnVarNameInTable="columnSupplierContactName" msprop:Generator_ColumnPropNameInRow="SupplierContactName" msprop:Generator_ColumnPropNameInTable="SupplierContactNameColumn" msprop:Generator_UserColumnName="SupplierContactName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Priority" msprop:Generator_ColumnVarNameInTable="columnPriority" msprop:Generator_ColumnPropNameInRow="Priority" msprop:Generator_ColumnPropNameInTable="PriorityColumn" msprop:Generator_UserColumnName="Priority" type="xs:int" minOccurs="0" />
+              <xs:element name="PriorityDescription" msprop:Generator_ColumnVarNameInTable="columnPriorityDescription" msprop:Generator_ColumnPropNameInRow="PriorityDescription" msprop:Generator_ColumnPropNameInTable="PriorityDescriptionColumn" msprop:Generator_UserColumnName="PriorityDescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ActionsRequired" msprop:Generator_ColumnVarNameInTable="columnActionsRequired" msprop:Generator_ColumnPropNameInRow="ActionsRequired" msprop:Generator_ColumnPropNameInTable="ActionsRequiredColumn" msprop:Generator_UserColumnName="ActionsRequired" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OthersInvolved" msprop:Generator_ColumnVarNameInTable="columnOthersInvolved" msprop:Generator_ColumnPropNameInRow="OthersInvolved" msprop:Generator_ColumnPropNameInTable="OthersInvolvedColumn" msprop:Generator_UserColumnName="OthersInvolved" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LastUpdates" msprop:Generator_ColumnVarNameInTable="columnLastUpdates" msprop:Generator_ColumnPropNameInRow="LastUpdates" msprop:Generator_ColumnPropNameInTable="LastUpdatesColumn" msprop:Generator_UserColumnName="LastUpdates" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CloseOutComments" msprop:Generator_ColumnVarNameInTable="columnCloseOutComments" msprop:Generator_ColumnPropNameInRow="CloseOutComments" msprop:Generator_ColumnPropNameInTable="CloseOutCommentsColumn" msprop:Generator_UserColumnName="CloseOutComments" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IssueClosureDate" msprop:Generator_ColumnVarNameInTable="columnIssueClosureDate" msprop:Generator_ColumnPropNameInRow="IssueClosureDate" msprop:Generator_ColumnPropNameInTable="IssueClosureDateColumn" msprop:Generator_UserColumnName="IssueClosureDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SupplierEngagement" msprop:Generator_ColumnVarNameInTable="columnSupplierEngagement" msprop:Generator_ColumnPropNameInRow="SupplierEngagement" msprop:Generator_ColumnPropNameInTable="SupplierEngagementColumn" msprop:Generator_UserColumnName="SupplierEngagement" type="xs:int" minOccurs="0" />
+              <xs:element name="SupplierEngagementDesc" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSupplierEngagementDesc" msprop:Generator_ColumnPropNameInRow="SupplierEngagementDesc" msprop:Generator_ColumnPropNameInTable="SupplierEngagementDescColumn" msprop:Generator_UserColumnName="SupplierEngagementDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeliveryLotNo" msprop:Generator_ColumnVarNameInTable="columnDeliveryLotNo" msprop:Generator_ColumnPropNameInRow="DeliveryLotNo" msprop:Generator_ColumnPropNameInTable="DeliveryLotNoColumn" msprop:Generator_UserColumnName="DeliveryLotNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeliveryDate" msprop:Generator_ColumnVarNameInTable="columnDeliveryDate" msprop:Generator_ColumnPropNameInRow="DeliveryDate" msprop:Generator_ColumnPropNameInTable="DeliveryDateColumn" msprop:Generator_UserColumnName="DeliveryDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SupplierReferenceNo" msprop:Generator_ColumnVarNameInTable="columnSupplierReferenceNo" msprop:Generator_ColumnPropNameInRow="SupplierReferenceNo" msprop:Generator_ColumnPropNameInTable="SupplierReferenceNoColumn" msprop:Generator_UserColumnName="SupplierReferenceNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:v_HovisVPD_Details" />
+      <xs:field xpath="mstns:VPDRefNo" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -36,7 +36,7 @@ namespace Hovis.Web.Base.Controllers
             //this sometimes occurs - not sure why?
             //note - this route does not exist in this app, it's just an example!!
             if (loginInfo == null)
-                return new RedirectResult("/error/not-authorised/");
+                return new RedirectResult("/error/Error403.cshtml");
 
             //if it's not a hovis email, reject
             if (!loginInfo.Email.EndsWith("@hovis.co.uk"))

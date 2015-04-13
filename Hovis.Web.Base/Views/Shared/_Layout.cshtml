@@ -1,49 +1,37 @@
-﻿<!doctype html>
-<html lang="">
+﻿<!DOCTYPE html>
+<html>
 <head>
-    <!-- meta -->
     <meta charset="utf-8">
+    <meta name="description" content="Flat, Clean, Responsive, admin template built with bootstrap 3">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <!-- /meta -->
-    @{
-        string pageTitle = @ViewBag.Title ?? "Hovis Application";
-    }
-    <title>@pageTitle</title>
-    @Styles.Render("~/Content/css");
+    <title>@ViewBag.Title - Hovis VPD</title>
+    @Styles.Render("~/content/bundles/css")
+    @Styles.Render("~/content/bundles/fonts")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 
-    <!-- page level plugin styles -->
-    <link rel="stylesheet" href="/Content/vendor/offline/theme.css">
-    <link rel="stylesheet" href="/Content/vendor/pace/theme.css">
-    <!-- /page level plugin styles -->
-    <!-- core styles -->
-    <link rel="stylesheet" href="/Content/bootstrap.min.css">
-    <link rel="stylesheet" href="/Content/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/Content/css/animate.min.css">
-    <!-- /core styles -->
-    <!-- template styles -->
+    <link rel="stylesheet" href="/Content/vendor/slider/slider.css">
+    <link rel="stylesheet" href="/Content/vendor/video-js/video-js.css">
+    <link rel="stylesheet" href="/Content/vendor/audioplayer/audioplayer.css">
+    <link rel="stylesheet" href="/Content/vendor/bxslider/jquery.bxslider.css">
     <link rel="stylesheet" href="/Content/css/skins/palette.1.css" id="skin">
     <link rel="stylesheet" href="/Content/css/fonts/style.1.css" id="font">
     <link rel="stylesheet" href="/Content/css/main.css">
-    <!-- template styles -->
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
     <!-- load modernizer -->
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<!-- body -->
 <body>
     <div class="app">
         <!-- top header -->
         <header class="header header-fixed navbar">
             <div class="brand">
                 <a href="javascript:;" class="fa fa-bars off-left visible-xs" data-toggle="off-canvas" data-move="ltr"></a>
-                <a href="index.html" class="navbar-brand text-white">
-                    <i class="fa fa-stop mg-r-sm"></i>
+
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand text-white">
+                    <i class="fa fa-cogs mg-r-sm"></i>
                     <span class="heading-font">
-                        Title Goes Here
+                        Hovis VPD
                     </span>
                 </a>
             </div>
@@ -53,17 +41,74 @@
         <section class="layout">
             <!-- sidebar menu -->
             <aside class="sidebar canvas-left">
-                <!-- main navigation -->
-                <nav class="main-navigation">
-                    @{
-                        Html.RenderPartial("Navigation/MainNavigation");
-                    }
-                    <hr />
-                    @{
-                        Html.RenderPartial("Navigation/UserManagementNavigation");
-                    }
-                </nav>
-                <!-- /main navigation -->
+                <div class="scroll-menu">
+                    <!-- main navigation -->
+                    <nav class="main-navigation" data-height="auto" data-size="4px" data-color="#ddd" data-distance="0">
+                        <ul>
+                            <li>
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="fa fa-coffee"></i>
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("About", "Home")">
+                                    <i class="fa fa-binoculars"></i>
+                                    <span>About</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Contact", "Home")">
+                                    <i class="fa fa-info"></i>
+                                    <span>Contact</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Details")">
+                                    <i class="fa fa-book"></i>
+                                    <span>Log</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("IndexSearch", "Details")">
+                                    <i class="fa fa-search"></i>
+                                    <span>Search</span>
+                                </a>
+                            </li>
+                        </ul>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Site Admin"))
+                        {
+                            <hr />
+                            Html.RenderPartial("~/Views/Shared/Navigation/UserManagementNavigation.cshtml");
+
+                        }
+                    </nav>
+                    <!-- /main navigation -->
+                </div>
+                <!-- footer -->
+                <footer>
+                    <div class="about-app pd-md animated pulse">
+                        <a href="javascript:;">
+                            @*<img src="~/Content/img/Hovis Excellence logo_1.png" alt="">*@
+                        </a>
+                        <span>
+                            <b>Hovis</b>
+                            <a href="javascript:;">
+                                <b>Find out more</b>
+                            </a>
+                        </span>
+                    </div>
+                    <div class="footer-toolbar pull-left">
+                        <a href="javascript:;" class="pull-left help">
+                            <i class="fa fa-question-circle"></i>
+                        </a>
+                        <a href="javascript:;" class="toggle-sidebar pull-right hidden-xs">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    </div>
+                </footer>
+                <!-- /footer -->
+
             </aside>
             <!-- /sidebar menu -->
             <!-- main content -->
@@ -75,19 +120,23 @@
             <!-- /main content -->
         </section>
     </div>
-    <!-- core scripts -->
-    <script src="/Content/vendor/jquery-1.11.1.min.js"></script>
-    <script src="/Content/vendor/jquery.easing.min.js"></script>
-    <script src="/Content/vendor/jquery.placeholder.js"></script>
-    <script src="/Content/vendor/fastclick.js"></script>
-    <script src="/Scripts/off-canvas.js"></script>
-    <script src="/Scripts/main.js"></script>
-    <!-- /core scripts -->
-    <!-- page level scripts -->
-    @Scripts.Render("~/bundles/bootstrap")
 
-    @RenderSection("scripts", required: false)
-    <!-- /page level scripts -->
+        <!-- /main content -->
+        <!-- core scripts -->
+        @*@Scripts.Render("~/bundles/jquery")*@
+        <script src="/Content/vendor/jquery.easing.min.js"></script>
+        <script src="/Content/vendor/jquery.placeholder.js"></script>
+        <script src="/Content/vendor/fastclick.js"></script>
+        <script src="/Scripts/off-canvas.js"></script>
+        <script src="/Content/vendor/jquery.slimscroll.js"></script>
+        <script src="/Content/vendor/offline/offline.min.js"></script>
+        <script src="/Content/vendor/pace/pace.min.js"></script>
+        <!-- /core scripts -->
+        <!-- page level scripts -->
+        @*@Scripts.Render("~/bundles/bootstrap")*@
+        <script src="/Scripts/main.js"></script>
+        @RenderSection("scripts", required: false)
+        <!-- /page level scripts -->
 </body>
 <!-- /body -->
 </html>

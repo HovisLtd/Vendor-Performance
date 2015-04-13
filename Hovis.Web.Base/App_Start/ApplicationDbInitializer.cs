@@ -10,12 +10,12 @@ namespace Hovis.Web.Base
         protected override void Seed(ApplicationDbContext context)
         {
             //seed identity
-            IdentityConfig.SeedRoles();
-            IdentityConfig.SeedUsers();
+            //IdentityConfig.SeedRoles();
+            //IdentityConfig.SeedUsers();
 
             //could seed other data here if required by application
 
-            base.Seed(context);
+            //base.Seed(context);
         }
     }
 }

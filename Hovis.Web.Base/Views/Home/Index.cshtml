@@ -1,19 +1,156 @@
-﻿@{
-    ViewBag.Title = "Title Here";
+﻿@model Hovis.Web.Base.Models.MyViewModel
+@{
+    ViewBag.Title = "Home";
 }
-
-<header class="header">
-    <h2>Content Here</h2>
-</header>
 <!-- content wrapper -->
-<div class="content-wrap">
 
+</br>
+</br>
+<div class="content-wrap no-padding">
+    </br>
+    </br>
     <div class="row">
-        <div class="col-md-12">
-            <p>
-                Replace Me.
-            </p>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-9">
+            <section class="panel no-margin">
+                <div class="panel-body">
+                    <div class="mg-b-lg clearfix">
+                        <div class="">
+                            <section class="panel panel-success">
+                                <div class="panel-heading no-border">
+                                    <div>
+                                        <h2>Hovis VPD - non Conformance log</h2>
+                                        <small class="pull-right">
+                                        </small>
+                                    </div>
+                                    <small>This application should be used to log vendor performance data.</small>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span class="form-control text-center">
+                                            @Html.LabelFor(model => model.OpenCriticalA, htmlAttributes: new { @class = "control-label" })
+                                        </span>
+                                        <span class="form-control text-center bg-danger">
+                                            @Html.DisplayFor(model => model.OpenCriticalA, new { htmlAttributes = new { @class = "form-control" } })
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span class="form-control text-center">
+                                            @Html.LabelFor(model => model.OpenMajorA, htmlAttributes: new { @class = "control-label" })
+                                        </span>
+                                        <span class="form-control text-center bg-warning">
+                                            @Html.DisplayFor(model => model.OpenMajorA, new { htmlAttributes = new { @class = "form-control" } })
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span class="form-control text-center">
+                                            @Html.LabelFor(model => model.OpenMinorA, htmlAttributes: new { @class = "control-label" })
+                                        </span>
+                                        <span class="form-control text-center bg-warning" style="background-color:#808080">
+                                            @Html.DisplayFor(model => model.OpenMinorA, new { htmlAttributes = new { @class = "form-control" } })
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span class="form-control text-center">
+                                            @Html.LabelFor(model => model.AllCriticalA, htmlAttributes: new { @class = "control-label" })
+                                        </span>
+                                        <span class="form-control text-center bg-danger">
+                                            @Html.DisplayFor(model => model.AllCriticalA)
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span class="form-control text-center">
+                                            @Html.LabelFor(model => model.AllMajorA, htmlAttributes: new { @class = "control-label" })
+                                        </span>
+                                        <span class="form-control text-center bg-warning">
+                                            @Html.DisplayFor(model => model.AllMajorA, new { htmlAttributes = new { @class = "form-control" } })
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span class="form-control text-center">
+                                            @Html.LabelFor(model => model.AllMinorA, htmlAttributes: new { @class = "control-label" })
+                                        </span>
+                                        <span class="form-control text-center bg-warning" style="background-color:#808080">
+                                            @Html.DisplayFor(model => model.AllMinorA, new { htmlAttributes = new { @class = "form-control" } })
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span class="form-control text-center">
+                                            @Html.LabelFor(model => model.AllOpenA, htmlAttributes: new { @class = "control-label" })
+                                        </span>
+                                        <span class="form-control text-center">
+                                            @Html.DisplayFor(model => model.AllOpenA, new { htmlAttributes = new { @class = "form-control" } })
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span class="form-control text-center">
+                                            @Html.LabelFor(model => model.AllClosedA, htmlAttributes: new { @class = "control-label" })
+                                        </span>
+                                        <span class="form-control text-center">
+                                            @Html.DisplayFor(model => model.AllClosedA, new { htmlAttributes = new { @class = "form-control" } })
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span class="form-control text-center">
+                                            @Html.LabelFor(model => model.AllLoggedA, htmlAttributes: new { @class = "control-label" })
+                                        </span>
+                                        <span class="form-control text-center">
+                                            @Html.DisplayFor(model => model.AllLoggedA, new { htmlAttributes = new { @class = "form-control" } })
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <span class="form-control text-center">
+                                            @Html.LabelFor(model => model.OpenLast10daysA, htmlAttributes: new { @class = "control-label  text-center" })
+                                        </span>
+                                        <span class="form-control text-center">
+                                            @Html.DisplayFor(model => model.OpenLast10daysA, new { htmlAttributes = new { @class = "form-control" } })
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span class="form-control text-center">
+                                            @Html.LabelFor(model => model.Closedlast10daysA)
+                                        </span>
+                                        <span class="form-control text-center" cell-border="false">
+                                            @Html.DisplayFor(model => model.Closedlast10daysA)
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </section>
+                            <hr />
+                            @*<div class="col-md-12">*@
+                                <span class="text-center">
+                                    <a>Data collected by this application will be used to provide management reports using the BIME tool.</a>
+                                    <a class="btn btn-info" href="https://hovis.bime.io/dashboard/7F4CF2F31622409305E875ED8619A5F1DEDC27213BAFB96C28146356847135EC" target="_blank">Complaints Reports &raquo;</a>
+                                </span>
+                            @*</div>*@
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
-</div>
+    <br />
+    <div class="row">
+    </div>
+     </div>
 <!-- /content wrapper -->
+<script>
+    $(document).ready(function () {
+        $('.bxslider').bxSlider({
+            auto: true,
+            autoControls: true
+        });
+    });
+</script>
+
+
+<script src="/Content/vendor/bxslider/jquery.bxslider.min.js"></script>
+
