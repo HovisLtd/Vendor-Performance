@@ -13,6 +13,7 @@
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     @Html.HiddenFor(model => model.RecID)
+                    @Html.HiddenFor(model => model.VPDRefNo)
                     @Html.HiddenFor(model => model.FileLink, new { id = "documentFileLink" })
                     <div class="row">
                         <div class="col-lg-6">
@@ -36,13 +37,16 @@
                                         @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.VPDRefNo)
-                                        @Html.TextBoxFor(model => model.VPDRefNo, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.VPDRefNo, "", new { @class = "text-danger" })
+                                        <span class="control-label">
+                                            @Html.LabelFor(model => model.VPDRefNo, htmlAttributes: new { @class = "control-label" })
+                                        </span>
+                                        <span class="form-control" style="background-color:lightgray">
+                                            @Html.DisplayFor(model => model.VPDRefNo, new { htmlAttributes = new { @class = "form-control" } })
+                                        </span>
                                     </div>
                                     <div class="form-group">
+                                        @Html.LabelFor(model => model.DateCreated)
                                         <div class="input-group mg-b-md input-append date datepicker" data-date="@DateTime.Now.ToString("dd/MM/yyyy")" data-date-format="dd/mm/yyyy">
-                                            @Html.LabelFor(model => model.DateCreated, htmlAttributes: new { @class = "control-label" })
                                             @Html.EditorFor(model => model.DateCreated, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.DateCreated, "", new { @class = "text-danger" })
                                             <span class=" input-group-btn">
@@ -50,7 +54,6 @@
                                                     <i class="fa fa-calendar"></i>
                                                 </button>
                                             </span>
-
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>

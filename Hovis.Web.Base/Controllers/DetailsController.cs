@@ -59,11 +59,12 @@ namespace Hovis.Web.Base.Controllers
                 sfield = cFilter;
             }
 
+            var t_HovisVPD_Details = db.t_HovisVPD_Details.Include(t => t.t_HovisVPD_Category_Drop_Down).Include(t => t.v_HovisVPD_MasterData_Plants).Include(t => t.t_HovisVPD_Priority_Drop_Down).Include(t => t.t_HovisVPD_Supplier_Rating_Drop_Down);
             ViewBag.CurrentFilter = sfield;
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(db.t_HovisVPD_Details
-            .Where(x => x.RaisedBy.Contains(sfield) || x.SupplierName.Contains(sfield) || x.ItemCode.Contains(sfield) || x.ItemDescription.Contains(sfield) || x.Bakery.Contains(sfield) || x.BakeryPONumber.Contains(sfield))
+            return View(t_HovisVPD_Details
+            .Where(x => x.RaisedBy.Contains(sfield) || x.SupplierName.Contains(sfield) || x.ItemCode.Contains(sfield) || x.ItemDescription.Contains(sfield) || x.v_HovisVPD_MasterData_Plants.BakeryDesc.Contains(sfield) || x.BakeryPONumber.Contains(sfield) || x.Status.Contains(sfield))
             .OrderByDescending(x => x.DateFirstRaised).ThenByDescending(x => x.Bakery).ThenBy(x => x.VPDRefNo).ToPagedList(pageNumber, pageSize));
         }
 

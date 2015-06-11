@@ -22,25 +22,33 @@ namespace Hovis.Web.Base.Controllers
             };
 
             //challenge
-            Request.RequestContext.HttpContext.GetOwinContext().Authentication.Challenge(properties, "Google");
-
+            //Request.RequestContext.HttpContext.GetOwinContext().Authentication.Challenge(properties, "Google");
+            HttpContext.GetOwinContext().Authentication.Challenge(properties, "Google");
             //if we got here, the above challenge didn't handle it, return unauth.
             return new HttpUnauthorizedResult();
         }
 
+
+        [HttpGet]
         [AllowAnonymous]
+        [AsyncTimeout(90000)]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
+            // fix to stop null return below
+            ControllerContext.HttpContext.Session.RemoveAll();
+
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
 
             //this sometimes occurs - not sure why?
             //note - this route does not exist in this app, it's just an example!!
             if (loginInfo == null)
-                return new RedirectResult("/error/Error403.cshtml");
+                return new RedirectResult("Error403");
+            //return new RedirectResult("Views/error/Error403.cshtml");
 
             //if it's not a hovis email, reject
             if (!loginInfo.Email.EndsWith("@hovis.co.uk"))
-                return new HttpUnauthorizedResult();
+                //return new HttpUnauthorizedResult();
+                return new RedirectResult("Error403");
 
             //See if the user exists in our database
             var user = await UserManager.FindByEmailAsync(loginInfo.Email);
@@ -81,6 +89,12 @@ namespace Hovis.Web.Base.Controllers
                 DefaultAuthenticationTypes.ApplicationCookie);
 
             return RedirectToAction("Index", "Home");
+        }
+
+        [AllowAnonymous]
+        public ActionResult Error403()
+        {
+            return View();
         }
 
         public ApplicationUserManager UserManager

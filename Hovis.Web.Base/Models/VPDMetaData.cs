@@ -12,6 +12,7 @@ namespace Hovis.Web.Base.Models
         public int VPDRefNo { get; set; }
 
         [Display(Name = "Date First Raised")]
+        [Required(ErrorMessage = "Please select a Date")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> DateFirstRaised { get; set; }
 
